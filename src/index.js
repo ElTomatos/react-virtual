@@ -25,6 +25,11 @@ export function useVirtual({
     [sizeKey]: 0,
   }
 
+  const measure = React.useCallback(
+    () => setMeasuredCache({}),
+    []
+  )
+
   const defaultScrollToFn = React.useCallback(
     offset => {
       if (parentRef.current) {
@@ -213,6 +218,7 @@ export function useVirtual({
     totalSize,
     scrollToOffset,
     scrollToIndex,
+    measure,
   }
 }
 
